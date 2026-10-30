@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10251d">
+  <title>AgriTech AI | Smart Farming Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-page="overview">
+      <span class="brand-mark">✳</span>
+      <span><strong>AgriTech<span class="brand-ai">AI</span></strong><small>SMART FARMING PLATFORM</small></span>
+    </a>
+    <div class="farm-switcher">
+      <div class="farm-avatar">GF</div>
+      <div class="farm-meta"><strong>Greenfields Farm</strong><small>Western Cape, SA</small></div>
+      <span class="chevron">⌄</span>
+    </div>
+    <div class="nav-label">WORKSPACE</div>
+    <nav class="nav-list">
+      <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span> Overview</button>
+      <button class="nav-item" data-page="crop-doctor"><span class="nav-icon">✣</span> AI Crop Doctor <span class="nav-tag">AI</span></button>
+      <button class="nav-item" data-page="assistant"><span class="nav-icon">✧</span> Farming Assistant</button>
+      <button class="nav-item" data-page="crops"><span class="nav-icon">♧</span> Crop Management</button>
+      <button class="nav-item" data-page="soil"><span class="nav-icon">◈</span> Soil & Irrigation</button>
+      <button class="nav-item" data-page="equipment"><span class="nav-icon">⚒</span> Equipment Hub</button>
+    </nav>
+    <div class="nav-label tools-label">PREFERENCES</div>
+    <nav class="nav-list">
+      <button class="nav-item" data-page="reports"><span class="nav-icon">▤</span> Reports</button>
+      <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="help-card"><div class="help-icon">✦</div><strong>Need a hand?</strong><p>Get guidance on using your smart farm workspace.</p><button data-page="assistant">Ask AgriTech AI <span>↗</span></button></div>
+      <div class="profile"><div class="profile-avatar">AM</div><div><strong>Farm Manager</strong><small>Administrator</small></div><button class="more-btn" aria-label="Profile options">···</button></div>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+      <div class="top-actions">
+        <div class="date-chip"><span>◷</span> <span id="todayLabel">Today</span></div>
+        <button class="icon-btn notification" aria-label="Notifications">♧<i></i></button>
+        <div class="top-avatar">AM</div>
+      </div>
+    </header>
+
+    <section class="page active" id="page-overview">
+      <div class="welcome-row">
+        <div><div class="eyebrow"><span class="live-dot"></span> FARM OVERVIEW</div><h1>Good afternoon, <em>Farm Manager.</em></h1><p>Here's what's happening across your farm today.</p></div>
+        <button class="primary-btn" data-page="crops"><span>＋</span> Add crop</button>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-copy"><span class="weather-kicker">LOCAL WEATHER · OUDTSHOORN (DEMO)</span><h2>Clear skies, good growing conditions.</h2><p>Use local forecasts before making irrigation or spraying decisions.</p></div>
+        <div class="weather-current"><span class="sun">☀</span><div><strong>24°</strong><small>Sunny</small></div></div>
+        <div class="weather-divider"></div>
+        <div class="weather-stat"><span>WIND</span><strong>12 <small>km/h</small></strong><small>NE direction</small></div>
+        <div class="weather-stat"><span>HUMIDITY</span><strong>48<small>%</small></strong><small>Moderate</small></div>
+        <div class="weather-stat"><span>RAINFALL</span><strong>0.0 <small>mm</small></strong><small>Today</small></div>
+        <div class="weather-orb orb-one"></div><div class="weather-orb orb-two"></div>
+      </div>
+      <div class="section-heading"><div><h2>Farm at a glance</h2><p>Key indicators across your operation</p></div><span class="updated">Updated just now <span>●</span></span></div>
+      <div class="metric-grid">
+        <article class="metric-card"><div class="metric-top"><span>Total crop areas</span><span class="metric-icon green">♧</span></div><div class="metric-value">24.8 <small>ha</small></div><div class="metric-foot"><span class="positive">↑ 8.2%</span> <span>vs. last season</span></div><div class="sparkline"><i style="height:30%"></i><i style="height:44%"></i><i style="height:38%"></i><i style="height:56%"></i><i style="height:49%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:90%"></i></div></article>
+        <article class="metric-card"><div class="metric-top"><span>Crop health score</span><span class="metric-icon mint">✳</span></div><div class="metric-value">86<small>/100</small></div><div class="metric-foot"><span class="positive">↑ 4.6%</span> <span>healthy overall</span></div><div class="progress-line"><span style="width:86%"></span></div></article>
+        <article class="metric-card"><div class="metric-top"><span>Active crop cycles</span><span class="metric-icon amber">◷</span></div><div class="metric-value" id="activeCropCount">03</div><div class="metric-foot"><span class="neutral">Across 3 fields</span></div><div class="mini-bars"><i style="height:40%"></i><i style="height:70%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:65%"></i><i style="height:100%"></i><i style="height:78%"></i></div></article>
+        <article class="metric-card"><div class="metric-top"><span>Attention needed</span><span class="metric-icon coral">!</span></div><div class="metric-value">01 <small>field</small></div><div class="metric-foot"><span class="warning-text">Requires review</span><span>Tomatoes · Greenhouse 1</span></div><div class="attention-line"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></article>
+      </div>
+      <div class="content-grid">
+        <article class="panel crop-panel"><div class="panel-heading"><div><h3>Crop health monitoring</h3><p>Health status by crop type</p></div><button class="text-btn" data-page="crops">View all crops ↗</button></div>
+          <div class="crop-table-wrap"><table class="crop-table"><thead><tr><th>CROP</th><th>FIELD</th><th>GROWTH STAGE</th><th>HEALTH</th><th></th></tr></thead><tbody id="cropTable"><tr><td><span class="crop-emoji">🌽</span><b>Maize</b></td><td>North Field</td><td>Vegetative</td><td><span class="status healthy">● Healthy</span></td><td>···</td></tr><tr><td><span class="crop-emoji">🍅</span><b>Tomatoes</b></td><td>Greenhouse 1</td><td>Flowering</td><td><span class="status attention">● Attention</span></td><td>···</td></tr><tr><td><span class="crop-emoji">🎃</span><b>Butternut</b></td><td>South Field</td><td>Fruiting</td><td><span class="status healthy">● Healthy</span></td><td>···</td></tr></tbody></table></div>
+          <div class="panel-foot"><span class="tiny-dot"></span> Crop records are sample data. Add your own farm records to get started.</div>
+        </article>
+        <article class="panel insights-panel"><div class="panel-heading"><div><h3>AI farm insights</h3><p>Suggestions based on your demo farm data</p></div><span class="ai-pill">✧ AI INSIGHTS</span></div>
+          <div class="insight-item"><div class="insight-symbol water">◉</div><div><strong>Review irrigation schedule</strong><p>Check soil moisture in North Field before the next watering cycle.</p><span class="insight-time">TODAY · WATER MANAGEMENT</span></div></div>
+          <div class="insight-item"><div class="insight-symbol leaf">♧</div><div><strong>Inspect tomato leaves</strong><p>Review the lower leaves in Greenhouse 1 and record any visible changes.</p><span class="insight-time">PRIORITY · CROP HEALTH</span></div></div>
+          <button class="outline-btn" data-page="assistant">Explore AI recommendations <span>→</span></button>
+        </article>
+      </div>
+      <div class="bottom-grid">
+        <article class="panel activity-panel"><div class="panel-heading"><div><h3>Recent activity</h3><p>Latest updates from your farm</p></div><button class="text-btn" data-page="reports">View history ↗</button></div>
+          <div class="activity-row"><span class="activity-icon pale-green">♧</span><div><strong>Crop record updated</strong><p>Maize · North Field</p></div><time>09:42 AM</time></div>
+          <div class="activity-row"><span class="activity-icon pale-blue">☁</span><div><strong>Weather conditions reviewed</strong><p>Oudtshoorn area</p></div><time>Yesterday</time></div>
+          <div class="activity-row"><span class="activity-icon pale-amber">✧</span><div><strong>AI crop health check requested</strong><p>Tomatoes · Greenhouse 1</p></div><time>Yesterday</time></div>
+        </article>
+        <article class="panel quick-panel"><div class="panel-heading"><div><h3>Quick actions</h3><p>Get things done faster</p></div></div><button class="quick-action" data-page="crop-doctor"><span class="quick-icon">✣</span><span><b>Diagnose a crop</b><small>Upload a plant photo</small></span><span class="quick-arrow">↗</span></button><button class="quick-action" data-page="assistant"><span class="quick-icon">✧</span><span><b>Ask farming AI</b><small>Get expert-style guidance</small></span><span class="quick-arrow">↗</span></button><button class="quick-action" data-page="crops"><span class="quick-icon">＋</span><span><b>Add crop record</b><small>Update your farm data</small></span><span class="quick-arrow">↗</span></button></article>
+      </div>
+    </section>
+
+    <section class="page" id="page-crop-doctor">
+      <div class="page-title"><div class="eyebrow">AI-POWERED PLANT HEALTH</div><h1>AI Crop <em>Doctor</em></h1><p>Upload a clear plant photo to explore possible crop health issues.</p></div>
+      <div class="doctor-layout">
+        <article class="panel upload-panel"><div class="panel-heading"><div><h3>New crop health assessment</h3><p>Share a photo and a little context for a more useful analysis.</p></div><span class="ai-pill">✧ VISION AI</span></div>
+          <form id="diagnoseForm">
+            <label class="field-label">Select crop</label><select name="crop" class="field-control"><option>Tomatoes</option><option>Maize</option><option>Butternut</option><option>Grapes</option><option>Other / not sure</option></select>
+            <label class="field-label">Plant photo</label><label class="dropzone" id="dropzone"><input type="file" id="plantImage" name="image" accept="image/png,image/jpeg,image/webp,image/gif" hidden><span class="upload-symbol">↑</span><strong>Drop your image here, or <u>browse files</u></strong><small>PNG, JPG or WEBP · Max 8MB</small><img id="imagePreview" alt="Selected plant preview" hidden></label>
+            <label class="field-label">What have you noticed? <span class="optional">OPTIONAL</span></label><textarea name="notes" class="field-control text-area" placeholder="E.g. yellow spots on lower leaves, noticed three days ago..."></textarea>
+            <button class="primary-btn full-btn" type="submit" id="diagnoseBtn">✧ Analyse plant photo</button>
+            <p class="form-note">AI results are informational, not a confirmed diagnosis. Always verify with a local agricultural expert.</p>
+          </form>
+        </article>
+        <article class="panel result-panel"><div class="result-empty" id="diagnosisEmpty"><div class="result-illustration">♧</div><h3>Your crop report will appear here</h3><p>Upload a plant image to receive a structured assessment with possible causes and suggested next steps.</p><div class="result-checks"><span>✓ Visual observations</span><span>✓ Possible causes</span><span>✓ Practical next steps</span></div></div><div id="diagnosisResult" hidden><div class="result-top"><span class="ai-pill">✧ ANALYSIS REPORT</span><span class="result-date" id="diagnosisDate"></span></div><h3>Plant health assessment</h3><div class="analysis-text" id="analysisText"></div><button class="outline-btn" id="newDiagnosis">Start another assessment ↻</button></div></article>
+      </div>
+    </section>
+
+    <section class="page" id="page-assistant">
+      <div class="page-title"><div class="eyebrow">YOUR DIGITAL FARMING COMPANION</div><h1>Farming <em>Assistant</em></h1><p>Ask questions and explore practical farming guidance.</p></div>
+      <div class="chat-layout panel"><div class="chat-header"><div class="assistant-avatar">✧</div><div><strong>AgriTech AI Assistant</strong><small><span class="live-dot"></span> Ready to help · Agricultural guidance</small></div><span class="ai-pill">AI ASSISTANT</span></div>
+        <div class="chat-messages" id="chatMessages"><div class="message assistant-message"><div class="message-avatar">✧</div><div class="message-bubble"><strong>Hello! I'm your AgriTech farming assistant.</strong><p>I can help you explore crop care, soil health, irrigation, pest prevention and general farming questions. Tell me what you're growing and what you'd like to know.</p><small>AG RITECH AI · JUST NOW</small></div></div></div>
+        <div class="suggestion-row"><button class="suggestion" data-prompt="How can I improve soil health before planting?">Improve soil health</button><button class="suggestion" data-prompt="What are good irrigation practices for tomatoes?">Tomato irrigation</button><button class="suggestion" data-prompt="How can I monitor early signs of crop disease?">Early disease signs</button></div>
+        <form id="chatForm" class="chat-input-row"><input id="chatInput" placeholder="Ask anything about your farm..." autocomplete="off"><button type="submit" class="send-btn" aria-label="Send message">↑</button></form><div class="chat-disclaimer">AI can make mistakes. Confirm important decisions with a qualified local agricultural advisor.</div>
+      </div>
+    </section>
+
+    <section class="page" id="page-crops">
+      <div class="welcome-row"><div class="page-title"><div class="eyebrow">FARM OPERATIONS</div><h1>Crop <em>Management</em></h1><p>Keep your crop records organised in one place.</p></div><button class="primary-btn" id="openCropModal">＋ Add crop record</button></div>
+      <div class="metric-grid compact-metrics"><article class="metric-card"><div class="metric-top"><span>Registered crops</span><span class="metric-icon green">♧</span></div><div class="metric-value" id="cropTotal">03</div><div class="metric-foot">Across your farm</div></article><article class="metric-card"><div class="metric-top"><span>Healthy records</span><span class="metric-icon mint">✓</span></div><div class="metric-value">02</div><div class="metric-foot">Sample data</div></article><article class="metric-card"><div class="metric-top"><span>Needs attention</span><span class="metric-icon coral">!</span></div><div class="metric-value">01</div><div class="metric-foot">Review recommended</div></article></div>
+      <article class="panel"><div class="panel-heading"><div><h3>All crop records</h3><p>Manage crops, fields and growth stages</p></div><input id="cropSearch" class="search-input" placeholder="⌕  Search crops..."></div><div class="crop-table-wrap"><table class="crop-table"><thead><tr><th>CROP</th><th>FIELD</th><th>PLANTING DATE</th><th>GROWTH STAGE</th><th>HEALTH</th></tr></thead><tbody id="allCropTable"></tbody></table></div></article>
+    </section>
+
+    <section class="page" id="page-soil">
+      <div class="page-title"><div class="eyebrow">GROUND INTELLIGENCE</div><h1>Soil & <em>Irrigation</em></h1><p>Keep track of soil conditions and make informed water-management decisions.</p></div>
+      <div class="soil-grid"><article class="panel soil-card"><span class="metric-icon green">◈</span><span class="soil-label">SOIL PH</span><strong>6.4</strong><p>Sample reading · Slightly acidic</p><div class="scale"><i></i></div><small>Many crops grow well around pH 6–7. Crop needs vary.</small></article><article class="panel soil-card"><span class="metric-icon blue">◉</span><span class="soil-label">MOISTURE</span><strong>42<small>%</small></strong><p>Sample reading · Moderate</p><div class="progress-line"><span style="width:42%"></span></div><small>Check actual root-zone moisture before irrigating.</small></article><article class="panel soil-card"><span class="metric-icon amber">♧</span><span class="soil-label">SOIL TYPE</span><strong class="soil-word">Sandy loam</strong><p>Example soil profile</p><small>Record a lab test to replace this sample information.</small></article></div>
+      <article class="panel recommendation-panel"><div class="panel-heading"><div><h3>Soil care checklist</h3><p>General practices to consider</p></div><span class="ai-pill">FARM NOTES</span></div><label class="check-row"><input type="checkbox"> <span><b>Check soil moisture at root depth</b><small>Use a suitable probe or field method.</small></span></label><label class="check-row"><input type="checkbox"> <span><b>Review soil test results</b><small>Base nutrient decisions on a recent soil analysis.</small></span></label><label class="check-row"><input type="checkbox"> <span><b>Inspect irrigation lines</b><small>Look for leaks, blockages and uneven water distribution.</small></span></label><label class="check-row"><input type="checkbox"> <span><b>Record rainfall</b><small>Keep rainfall notes for each field.</small></span></label></article>
+    </section>
+
+    <section class="page" id="page-equipment">
+      <div class="page-title"><div class="eyebrow">FARM RESOURCES</div><h1>Equipment <em>Hub</em></h1><p>Explore common tools and equipment used in crop production.</p></div>
+      <div class="equipment-grid"><article class="equipment-card panel"><div class="equipment-art art-one">🚜</div><div class="equipment-info"><span class="equipment-type">FIELD PREPARATION</span><h3>Compact tractor</h3><p>Useful for small-to-medium field operations and compatible implements.</p><button class="text-btn equipment-detail" data-item="Compact tractor">View equipment details ↗</button></div></article><article class="equipment-card panel"><div class="equipment-art art-two">💧</div><div class="equipment-info"><span class="equipment-type">WATER MANAGEMENT</span><h3>Drip irrigation kit</h3><p>Targeted water delivery for rows, beds and suitable crop systems.</p><button class="text-btn equipment-detail" data-item="Drip irrigation kit">View equipment details ↗</button></div></article><article class="equipment-card panel"><div class="equipment-art art-three">🌱</div><div class="equipment-info"><span class="equipment-type">SOIL MONITORING</span><h3>Soil moisture meter</h3><p>Helps monitor moisture conditions when used and calibrated correctly.</p><button class="text-btn equipment-detail" data-item="Soil moisture meter">View equipment details ↗</button></div></article><article class="equipment-card panel"><div class="equipment-art art-four">🧰</div><div class="equipment-info"><span class="equipment-type">CROP CARE</span><h3>Field inspection kit</h3><p>Basic tools for scouting, recording and observing crop conditions.</p><button class="text-btn equipment-detail" data-item="Field inspection kit">View equipment details ↗</button></div></article></div><p class="form-note">Product listings are illustrative examples, not live stock or supplier offers.</p>
+    </section>
+
+    <section class="page" id="page-reports"><div class="page-title"><div class="eyebrow">FARM PERFORMANCE</div><h1>Farm <em>Reports</em></h1><p>A simple overview of the information currently recorded in your workspace.</p></div><div class="report-grid"><article class="panel report-card"><span class="soil-label">CROP RECORDS</span><strong id="reportCropCount">03</strong><p>Registered crop entries</p></article><article class="panel report-card"><span class="soil-label">SAMPLE HEALTH SCORE</span><strong>86/100</strong><p>Illustrative dashboard metric</p></article><article class="panel report-card"><span class="soil-label">AI CHECKS</span><strong id="reportAiCount">00</strong><p>Assessments this session</p></article></div><article class="panel"><div class="panel-heading"><div><h3>Data & reporting</h3><p>Export your current crop records</p></div><button class="primary-btn" id="exportCsv">↓ Export CSV</button></div><p class="report-copy">Download the crop records saved in this app as a CSV file that can be opened in Excel.</p></article></section>
+
+    <section class="page" id="page-settings"><div class="page-title"><div class="eyebrow">WORKSPACE PREFERENCES</div><h1>Farm <em>Settings</em></h1><p>Application information and configuration.</p></div><article class="panel settings-panel"><div class="settings-row"><div><h3>Farm profile</h3><p>Greenfields Farm · Western Cape, South Africa</p></div><span class="status healthy">DEMO PROFILE</span></div><div class="settings-row"><div><h3>AI connection</h3><p id="aiConnectionText">Checking AI configuration...</p></div><span id="aiConnectionStatus" class="status attention">Checking</span></div><div class="settings-row"><div><h3>Weather data</h3><p>Weather figures shown on the dashboard are sample values.</p></div><span class="status attention">DEMO DATA</span></div><div class="settings-row"><div><h3>Database</h3><p>Crop records are stored locally in SQLite.</p></div><span class="status healthy">LOCAL</span></div></article></section>
+    <footer class="footer"><span>© 2026 AgriTech AI</span><span>Built for smarter, more informed farming <b>✳</b></span></footer>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="cropModal"><div class="modal"><div class="modal-head"><div><span class="eyebrow">FARM RECORDS</span><h2>Add a crop</h2></div><button class="close-modal" id="closeCropModal">×</button></div><form id="cropForm"><label class="field-label">Crop name</label><input class="field-control" name="name" placeholder="e.g. Spinach" required><label class="field-label">Field / growing area</label><input class="field-control" name="field" placeholder="e.g. East Field" required><label class="field-label">Planting date</label><input class="field-control" name="planted" type="date"><label class="field-label">Growth stage</label><select class="field-control" name="stage"><option>Seedling</option><option>Vegetative</option><option>Flowering</option><option>Fruiting</option><option>Harvest</option></select><label class="field-label">Notes</label><textarea class="field-control text-area" name="notes" placeholder="Optional notes..."></textarea><button class="primary-btn full-btn" type="submit">Save crop record</button></form></div></div>
+<div class="toast" id="toast"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
